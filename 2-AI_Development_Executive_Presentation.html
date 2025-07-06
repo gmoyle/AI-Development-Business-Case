@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-House Gaming AI Development Environment - Executive Presentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .header-info {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .executive-summary {
+            background-color: #e8f2ff;
+            border-left: 5px solid #3498db;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .category-section {
+            margin-bottom: 50px;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+        }
+        
+        .category-title {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .sub-topic {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 3px solid #27ae60;
+        }
+        
+        .sub-topic h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .toc ul {
+            margin-left: 0;
+            list-style: none;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .calculator {
+            background-color: #f0f8ff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .input-group input {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .calc-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .calc-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .results {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .results h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .help-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            margin-left: 8px;
+            cursor: pointer;
+            position: relative;
+            font-weight: bold;
+        }
+        
+        .help-icon:hover {
+            background-color: #2980b9;
+        }
+        
+        .tooltip {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            white-space: normal;
+            width: 75vw;
+            max-width: 75vw;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #2c3e50 transparent transparent transparent;
+        }
+        
+        .help-icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .label-with-help {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Presentation Mode Styles */
+        .presentation-mode .calculator,
+        .presentation-mode .toc,
+        .presentation-mode .category-section {
+            display: none !important;
+        }
+        
+        .presentation-mode .presentation-summary {
+            display: block !important;
+        }
+        
+        .presentation-summary {
+            display: none;
+        }
+        
+        .presentation-slide {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+        }
+        
+        .presentation-slide h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .presentation-slide h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        
+        .presentation-metric {
+            background: #e8f5e8;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .presentation-highlight {
+            background: #fff3cd;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .presentation-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .exit-presentation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        @media print {
+            .presentation-slide {
+                page-break-after: always;
+            }
+            .exit-presentation {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>In-House Gaming AI Development Environment</h1>
+        <div class="header-info">
+            <strong>Executive Presentation</strong><br>
+            Strategic Analysis for Gaming AI Implementation
+        </div>
+
+        <div class="executive-summary">
+            <h2 style="margin-top: 0; color: #2c3e50;">Executive Summary</h2>
+            <div class="highlight exec-summary-dynamic">
+                <strong>ROI Impact: Enter your company data below to see customized financial analysis</strong>
+            </div>
+            <p>This proposal outlines the implementation of a secure, in-house AI development environment specifically trained on our gaming mathematics and Unity codebase. This strategic initiative addresses the industry's most expensive operational challenges while establishing competitive advantages in AI-assisted development.</p>
+            
+            <div class="success" style="margin: 25px 0; text-align: center;">
+                <h4 style="margin-top: 0; color: #2980b9;">🚀 Document Created with Warp 2.0 ADE</h4>
+                <p style="margin-bottom: 0; font-size: 14px;"><strong>This comprehensive business case, including the interactive ROI calculator and PowerPoint generator, was designed and programmed using only natural language commands within the Warp 2.0 AI Development Environment.</strong> Total development time: 2-3 hours using conversational AI - demonstrating the practical speed and capabilities of natural language programming for creating sophisticated business tools.</p>
+            </div>
+        </div>
+        
+        <div class="calculator" style="margin: 30px 0; border: 3px solid #e74c3c; background-color: #fff5f5;">
+            <h2 style="color: #e74c3c; margin-top: 0;">🎯 Enter Your Company Data - All Financial Analysis Below Uses These Values</h2>
+            <p style="font-weight: bold; color: #c0392b;">Complete this section first - all business case numbers throughout this document will automatically update to reflect your actual company metrics.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="defectCost">Average Cost per Defect ($):</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> The total cost to fix a defect that reaches production.<br><br>
+                                <strong>Includes:</strong> Developer time, QA retesting, deployment costs, potential regulatory re-submission, customer support impact.<br><br>
+                                <strong>Typical range:</strong> $5,000 - $50,000 depending on severity and when discovered.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="defectCost" value="0" min="0" placeholder="Enter actual cost">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="defectsPerYear">Defects per Year:</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Number of defects that escape to production annually.<br><br>
+                                <strong>Count:</strong> All defects requiring hotfixes, patches, or production corrections. Include mathematical errors, performance issues, and compliance violations.<br><br>
+                                <strong>Source:</strong> Check your bug tracking system for production defects over the last 12 months.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="defectsPerYear" value="0" min="0" placeholder="Historical average">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="developerCount">Number of Developers:</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Total developers who would benefit from AI assistance.<br><br>
+                                <strong>Include:</strong> Full-time developers, contractors, and part-time developers working on game logic, mathematics, or Unity development.<br><br>
+                                <strong>Focus:</strong> Those writing code that could benefit from AI review and assistance.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="developerCount" value="0" min="1" placeholder="Total dev team size">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="avgSalary">Average Developer Salary ($):</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Fully-loaded annual cost per developer.<br><br>
+                                <strong>Include:</strong> Base salary, benefits, taxes, office space, equipment, training, and overhead costs.<br><br>
+                                <strong>Calculation:</strong> Total annual people costs ÷ number of developers. Typically 1.3-1.5x base salary.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="avgSalary" value="0" min="0" placeholder="Fully loaded cost">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="complianceDelay">Revenue Impact per Month of Compliance Delay ($):</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Monthly revenue lost when game regulatory approval is delayed.<br><br>
+                                <strong>Includes:</strong> Lost revenue from delayed launch + extended development costs + opportunity cost.<br><br>
+                                <strong>Example:</strong> If a game delay costs $500K/month in lost revenue and you typically have 3-month delays, enter $500,000.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="complianceDelay" value="0" min="0" placeholder="Lost revenue/month">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="gamesPerYear">Games Released per Year:</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Number of new games or major updates released annually.<br><br>
+                                <strong>Count:</strong> New game launches, significant updates requiring regulatory approval, or major feature releases.<br><br>
+                                <strong>Focus:</strong> Releases that go through compliance/regulatory review processes.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="gamesPerYear" value="0" min="1" placeholder="Annual releases">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="expectedDefectReduction">Expected Defect Reduction (%):</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Your estimate of how much AI assistance could reduce production defects.<br><br>
+                                <strong>Research basis:</strong> GitHub Copilot studies show 20-30% fewer bugs, Microsoft research indicates 25-35% reduction in logical errors<br><br>
+                                <strong>Default (30%):</strong> Conservative estimate based on published AI development studies<br><br>
+                                <strong>Adjust based on:</strong> Your team's current defect patterns and AI adoption capability.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="expectedDefectReduction" value="30" min="0" max="100" placeholder="Your estimate %">
+                </div>
+                
+                <div class="input-group">
+                    <div class="label-with-help">
+                        <label for="expectedProductivityGain">Expected Productivity Improvement (%):</label>
+                        <span class="help-icon">?
+                            <div class="tooltip">
+                                <strong>What to enter:</strong> Your estimate of developer productivity improvement with AI assistance.<br><br>
+                                <strong>Research basis:</strong> GitHub's 2023 study shows 55% faster task completion, McKinsey research indicates 15-35% net productivity improvement<br><br>
+                                <strong>Default (20%):</strong> Conservative estimate accounting for learning curve and team adoption<br><br>
+                                <strong>Adjust based on:</strong> Your team's current efficiency and willingness to adopt new tools.
+                            </div>
+                        </span>
+                    </div>
+                    <input type="number" id="expectedProductivityGain" value="20" min="0" max="100" placeholder="Your estimate %">
+                </div>
+            </div>
+            
+            <button class="calc-button" onclick="calculateROI()" style="font-size: 16px; padding: 15px 30px;">📊 Calculate Your Custom Business Case</button>
+            
+            <div id="roiResults" class="results" style="display: none;">
+                <h4>Your Company's Financial Analysis</h4>
+                <div id="customResults"></div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <button class="calc-button" onclick="enterPresentationMode()" style="background-color: #27ae60; margin-right: 10px;">📊 Enter Presentation Mode</button>
+                    <button class="calc-button" onclick="clearData()" style="background-color: #e74c3c;">🗑️ Clear Saved Data</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Presentation Mode Summary (Hidden by default) -->
+        <div class="presentation-summary">
+            <button class="exit-presentation" onclick="exitPresentationMode()">✕ Exit Presentation</button>
+            
+            <div class="presentation-slide">
+                <h1>🎯 AI Development Environment - Executive Summary</h1>
+                <div class="presentation-highlight">
+                    <h2>Investment Proposal</h2>
+                    <p><strong>Request:</strong> <span id="present-investment">$115,000</span> initial investment</p>
+                    <p><strong>ROI:</strong> <span class="presentation-number" id="present-roi">--</span>% return in year 1</p>
+                    <p><strong>Payback Period:</strong> <span class="presentation-number" id="present-payback">--</span> months</p>
+                </div>
+                
+                <h2>Your Company's Potential Financial Impact</h2>
+                <div class="presentation-metric">
+                    <strong>Potential Annual Cost Savings: <span id="present-total-savings">$0</span></strong>
+                </div>
+                <ul>
+                    <li>Defect Reduction Potential: <span id="present-defect-savings">$0</span></li>
+                    <li>Developer Productivity Improvement: <span id="present-productivity-savings">$0</span></li>
+                    <li>Compliance Process Enhancement: <span id="present-compliance-savings">$0</span></li>
+                </ul>
+                <p><em>Note: Actual results will vary based on implementation and adoption.</em></p>
+            </div>
+            
+            <div class="presentation-slide">
+                <h1>📊 Your Company Data</h1>
+                <ul>
+                    <li><strong>Defect Cost:</strong> <span id="present-defect-cost">$0</span> per incident</li>
+                    <li><strong>Annual Defects:</strong> <span id="present-defects-per-year">0</span></li>
+                    <li><strong>Development Team:</strong> <span id="present-developer-count">0</span> developers</li>
+                    <li><strong>Expected Defect Reduction:</strong> <span id="present-defect-reduction">0</span>%</li>
+                    <li><strong>Expected Productivity Gain:</strong> <span id="present-productivity-gain">0</span>%</li>
+                </ul>
+                
+                <div class="presentation-highlight">
+                    <h2>Strategic Benefits</h2>
+                    <ul>
+                        <li>✅ Significant reduction in mathematical defects</li>
+                        <li>✅ Enhanced developer productivity</li>
+                        <li>✅ Accelerated regulatory compliance</li>
+                        <li>✅ Complete IP protection (on-premises)</li>
+                        <li>✅ Gaming-specific AI training</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="presentation-slide">
+                <h1>🚀 Implementation Plan</h1>
+                <h2>6-Month Roadmap</h2>
+                <ul>
+                    <li><strong>Months 1-2:</strong> Hardware setup & basic AI deployment</li>
+                    <li><strong>Months 3-4:</strong> Gaming-specific training & integration</li>
+                    <li><strong>Months 5-6:</strong> Advanced features & production readiness</li>
+                </ul>
+                
+                <div class="presentation-metric">
+                    <h2>Immediate Action Required</h2>
+                    <ol>
+                        <li>Approve <span id="present-investment-2">$115,000</span> investment</li>
+                        <li>Assign project team (1 DevOps + 1 Senior Dev)</li>
+                        <li>Begin hardware procurement (4-week lead time)</li>
+                        <li>Start with next game development cycle</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="toc">
+            <h3>Strategic Analysis Framework</h3>
+            <ul>
+                <li><a href="#category1">1. Understanding AI Development Capabilities</a></li>
+                <li><a href="#category2">2. Strategic Case for In-House Gaming AI</a></li>
+                <li><a href="#category3">3. Financial Impact & ROI Analysis</a></li>
+                <li><a href="#category4">4. Risk Management & Competitive Positioning</a></li>
+                <li><a href="#category5">5. Implementation Strategy</a></li>
+            </ul>
+        </div>
+
+        <div class="category-section" id="category1">
+            <h2 class="category-title">1. Understanding AI Development Capabilities</h2>
+            
+            <div class="sub-topic">
+                <h3>What is an AI Development Environment (ADE)?</h3>
+                <p>An AI Development Environment is an integrated system that provides AI-powered assistance for software development, specifically tailored to gaming mathematics and Unity development. Unlike general-purpose AI tools, our proposed ADE would be:</p>
+                <ul>
+                    <li><strong>Domain-specific</strong>: Trained on gaming mathematics, slot algorithms, and Unity best practices</li>
+                    <li><strong>Security-focused</strong>: All processing occurs on-premises with no external data transmission</li>
+                    <li><strong>Compliance-aware</strong>: Built-in understanding of gaming regulatory requirements</li>
+                    <li><strong>Quality-driven</strong>: Designed to catch mathematical defects before they reach production</li>
+                </ul>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Current AI Capabilities in Gaming Development</h3>
+                <h4>Mathematical Analysis Strengths</h4>
+                <ul>
+                    <li><strong>Probability calculations</strong> - RTP, variance, and volatility analysis</li>
+                    <li><strong>Statistical validation</strong> - Random number generation pattern analysis</li>
+                    <li><strong>Algorithm verification</strong> - Bonus triggers and progressive jackpot logic</li>
+                    <li><strong>Performance optimization</strong> - Code efficiency and Unity best practices</li>
+                </ul>
+
+                <h4>Code Generation Approach</h4>
+                <p>AI systems synthesize code by:</p>
+                <ul>
+                    <li>Combining proven programming patterns in novel ways</li>
+                    <li>Adapting standard approaches to specific requirements</li>
+                    <li>Following established coding conventions and architectural patterns</li>
+                    <li>Applying domain-specific knowledge (gaming mathematics, Unity frameworks)</li>
+                </ul>
+
+                <div class="success">
+                    <strong>Key Insight:</strong> AI-generated code represents a sophisticated recombination of proven patterns rather than truly "original" code - similar to how experienced developers work, but with access to vastly more patterns and instantaneous recall.
+                </div>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Limitations of External AI Tools</h3>
+                <h4>Gaming Industry Constraints</h4>
+                <ul>
+                    <li><strong>Intellectual Property Risks</strong>: All data sent to external AI services is transmitted to third-party servers</li>
+                    <li><strong>Regulatory Compliance</strong>: Gaming mathematics require strict confidentiality for certification</li>
+                    <li><strong>Limited Domain Knowledge</strong>: External AIs lack access to proprietary gaming algorithms and industry-specific patterns</li>
+                    <li><strong>No Guarantee of Privacy</strong>: Standard terms of service don't provide IP theft protection</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>Critical Risk:</strong> Using external AI tools with proprietary gaming mathematics violates regulatory requirements and exposes competitive advantages to potential compromise.
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="category2">
+            <h2 class="category-title">2. Strategic Case for In-House Gaming AI</h2>
+            
+            <div class="sub-topic">
+                <h3>Core Business Problems Solved</h3>
+                <h4>Your Company's Current Pain Points & Costs</h4>
+                <div class="highlight" style="background-color: #fff3cd; border-left-color: #ffc107;">
+                    <p><strong>📋 Data-Driven Analysis:</strong> The costs below are calculated from your actual company data entered above. If values show as $0, please complete the data entry section at the top of this document.</p>
+                </div>
+                <ul class="pain-points-dynamic">
+                    <li><strong>Defects cost your company: $0 per incident</strong> (based on your historical data)</li>
+                    <li><strong>Annual defect cost impact: $0</strong> (your defect rate × average cost)</li>
+                    <li><strong>Compliance delays cost: $0 per month</strong> (your reported revenue impact)</li>
+                    <li><strong>Cannot use external AI tools</strong> due to IP protection and regulatory requirements</li>
+                    <li><strong>Developer productivity gap: $0 annually</strong> (potential 20% efficiency gain on your team)</li>
+                </ul>
+
+                <h4>Industry-Specific Risks (General)</h4>
+                <ul>
+                    <li>Regulatory fines for errors (varies by jurisdiction)</li>
+                    <li><strong>Regulator pushback on poor changelogs</strong> causing submission delays and additional review cycles</li>
+                    <li>Brand damage from payback discrepancies</li>
+                    <li>Competitive disadvantage from slower development cycles</li>
+                    <li>IP theft risks with cloud-based AI tools</li>
+                </ul>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Technical Infrastructure Requirements</h3>
+                <h4>Core AI Infrastructure</h4>
+                <ul>
+                    <li><strong>Local Model Serving</strong>: Ollama, vLLM, TensorRT-LLM for high-performance inference</li>
+                    <li><strong>Gaming-Specific Models</strong>: CodeLlama, DeepSeek-Coder, specialized mathematical reasoning models</li>
+                    <li><strong>Development Integration</strong>: Aider for direct file editing, Continue.dev for IDE integration</li>
+                </ul>
+
+                <h4>Hardware Specifications</h4>
+                <ul>
+                    <li><strong>GPU</strong>: NVIDIA RTX 4090 or A6000 (24GB VRAM minimum)</li>
+                    <li><strong>CPU</strong>: AMD Threadripper or Intel Xeon (32+ cores)</li>
+                    <li><strong>RAM</strong>: 128GB+ for running multiple large models</li>
+                    <li><strong>Storage</strong>: NVMe SSD (2TB+) for model storage and fast loading</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>Investment Range:</strong> $75,000-$115,000 for complete infrastructure setup, with 3-6 month implementation timeline.
+                </div>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Custom Training on Proprietary Models</h3>
+                <h4>Training Data Sources</h4>
+                <ul>
+                    <li><strong>Proven mathematical implementations</strong>: RTP calculations, variance models, bonus logic</li>
+                    <li><strong>Unity game code</strong>: Tested reel mechanics, performance-optimized patterns</li>
+                    <li><strong>Historical defect patterns</strong>: Bug reports and fixes for pattern recognition</li>
+                    <li><strong>Compliance frameworks</strong>: GLI-approved methodologies and validation approaches</li>
+                </ul>
+
+                <h4>Expected Defect Reduction</h4>
+                <div class="success">
+                    <ul>
+                        <li><strong>Code errors</strong>: Significant reduction in calculation and logic bugs</li>
+                        <li><strong>Unity performance issues</strong>: Substantial reduction in memory/performance problems</li>
+                        <li><strong>Payback discrepancies</strong>: Major reduction through better validation</li>
+                        <li><strong>Compliance violations</strong>: Significant reduction in regulatory errors</li>
+                        <li><strong>Documentation quality</strong>: Professional, detailed changelogs that meet regulatory standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="category3">
+            <h2 class="category-title">3. Financial Impact & ROI Analysis</h2>
+            
+            <div class="sub-topic">
+                <h3>Your Company's Financial Analysis</h3>
+                <div class="highlight">
+                    <p><strong>📊 Real Data Analysis:</strong> All financial projections below are calculated using the company data you entered at the top of this document. This ensures our business case reflects your actual operational costs and potential savings.</p>
+                </div>
+                
+                <div id="financial-summary" class="success">
+                    <h4>Financial Impact Summary</h4>
+                    <div id="financial-breakdown">
+                        <p><em>Complete the data entry section above to see your customized financial analysis.</em></p>
+                    </div>
+                </div>
+
+                <script>
+                function calculateROI() {
+                    const defectCost = parseFloat(document.getElementById('defectCost').value) || 0;
+                    const defectsPerYear = parseFloat(document.getElementById('defectsPerYear').value) || 0;
+                    const developerCount = parseFloat(document.getElementById('developerCount').value) || 0;
+                    const avgSalary = parseFloat(document.getElementById('avgSalary').value) || 0;
+                    const complianceDelay = parseFloat(document.getElementById('complianceDelay').value) || 0;
+                    const gamesPerYear = parseFloat(document.getElementById('gamesPerYear').value) || 0;
+                    const expectedDefectReduction = parseFloat(document.getElementById('expectedDefectReduction').value) || 0;
+                    const expectedProductivityGain = parseFloat(document.getElementById('expectedProductivityGain').value) || 0;
+                    
+                    // Validation: Check if essential values are provided
+                    if (defectCost === 0 && defectsPerYear === 0 && developerCount === 0 && avgSalary === 0) {
+                        alert('Please enter your company data in the fields above to calculate ROI.');
+                        return;
+                    }
+                    
+                    // Calculate potential savings based on YOUR estimates
+                    const defectSavings = defectCost * defectsPerYear * (expectedDefectReduction / 100);
+                    const productivitySavings = (avgSalary * developerCount * (expectedProductivityGain / 100));
+                    const complianceSavings = complianceDelay * gamesPerYear; // Estimated faster compliance (user can adjust)
+                    
+                    const totalSavings = defectSavings + productivitySavings + complianceSavings;
+                    const investment = 115000; // Base investment
+                    const netBenefit = totalSavings - investment;
+                    const roi = ((netBenefit / investment) * 100).toFixed(0);
+                    const threeYearRoi = (((netBenefit * 3) / investment) * 100).toFixed(0);
+                    const paybackMonths = (investment / (totalSavings / 12)).toFixed(1);
+                    
+                    // Save all data to localStorage
+                    localStorage.setItem('defectCost', defectCost);
+                    localStorage.setItem('defectsPerYear', defectsPerYear);
+                    localStorage.setItem('developerCount', developerCount);
+                    localStorage.setItem('avgSalary', avgSalary);
+                    localStorage.setItem('complianceDelay', complianceDelay);
+                    localStorage.setItem('gamesPerYear', gamesPerYear);
+                    localStorage.setItem('expectedDefectReduction', expectedDefectReduction);
+                    localStorage.setItem('expectedProductivityGain', expectedProductivityGain);
+                    localStorage.setItem('defectSavings', defectSavings);
+                    localStorage.setItem('productivitySavings', productivitySavings);
+                    localStorage.setItem('complianceSavings', complianceSavings);
+                    localStorage.setItem('totalSavings', totalSavings);
+                    localStorage.setItem('investment', investment);
+                    localStorage.setItem('netBenefit', netBenefit);
+                    localStorage.setItem('roi', roi);
+                    localStorage.setItem('threeYearRoi', threeYearRoi);
+                    localStorage.setItem('paybackMonths', paybackMonths);
+                    
+                    // Update calculator results
+                    const resultsDiv = document.getElementById('customResults');
+                    resultsDiv.innerHTML = `
+                        <p><strong>Potential Annual Savings:</strong></p>
+                        <ul>
+                            <li>Defect Reduction Potential: $${defectSavings.toLocaleString()}</li>
+                            <li>Developer Productivity Improvement: $${productivitySavings.toLocaleString()}</li>
+                            <li>Compliance Process Enhancement: $${complianceSavings.toLocaleString()}</li>
+                        </ul>
+                        <p><em>Note: Actual results will vary based on implementation and adoption.</em></p>
+                        <p><strong>Total Annual Savings: $${totalSavings.toLocaleString()}</strong></p>
+                        <p><strong>Initial Investment: $${investment.toLocaleString()}</strong></p>
+                        <p><strong>Year 1 Net Benefit: $${netBenefit.toLocaleString()}</strong></p>
+                        <p><strong>ROI: ${roi}%</strong></p>
+                        <p><strong>3-Year ROI: ${threeYearRoi}%</strong></p>
+                        <p><strong>Payback Period: ${paybackMonths} months</strong></p>
+                    `;
+                    
+                    // Update all dynamic values throughout the document
+                    updateDynamicValues({
+                        defectCost,
+                        defectsPerYear,
+                        developerCount,
+                        avgSalary,
+                        complianceDelay,
+                        gamesPerYear,
+                        defectSavings,
+                        productivitySavings,
+                        complianceSavings,
+                        totalSavings,
+                        investment,
+                        netBenefit,
+                        roi,
+                        threeYearRoi,
+                        paybackMonths
+                    });
+                    
+                    document.getElementById('roiResults').style.display = 'block';
+                }
+                
+                function updateDynamicValues(values) {
+                    // Update pain points section
+                    const painPointsText = document.querySelector('.pain-points-dynamic');
+                    if (painPointsText) {
+                        painPointsText.innerHTML = `
+                            <li><strong>Defects cost your company: $${values.defectCost.toLocaleString()} per incident</strong> (based on your historical data)</li>
+                            <li><strong>Annual defect cost impact: $${(values.defectCost * values.defectsPerYear).toLocaleString()}</strong> (your defect rate × average cost)</li>
+                            <li><strong>Compliance delays cost: $${values.complianceDelay.toLocaleString()} per month</strong> (your reported revenue impact)</li>
+                            <li><strong>Cannot use external AI tools</strong> due to IP protection and regulatory requirements</li>
+                            <li><strong>Developer productivity gap: $${values.productivitySavings.toLocaleString()} annually</strong> (potential efficiency improvement on your team)</li>
+                        `;
+                    }
+                    
+                    // Update executive summary ROI
+                    const execSummary = document.querySelector('.exec-summary-dynamic');
+                    if (execSummary) {
+                        if (values.roi > 0) {
+                            execSummary.innerHTML = `<strong>Projected ROI Impact: ${values.roi}% potential return based on your company data</strong>`;
+                        } else {
+                            execSummary.innerHTML = `<strong>ROI Impact: Enter your company data above to see customized financial analysis</strong>`;
+                        }
+                    }
+                    
+                    // Update financial breakdown
+                    const financialBreakdown = document.getElementById('financial-breakdown');
+                    if (financialBreakdown) {
+                        if (values.totalSavings > 0) {
+                            financialBreakdown.innerHTML = `
+                                <p><strong>Potential Annual Cost Savings: $${values.totalSavings.toLocaleString()}</strong></p>
+                                <ul>
+                                    <li>Defect Reduction Potential: $${values.defectSavings.toLocaleString()}</li>
+                                    <li>Developer Productivity Improvement: $${values.productivitySavings.toLocaleString()}</li>
+                                    <li>Compliance Process Enhancement: $${values.complianceSavings.toLocaleString()}</li>
+                                </ul>
+                                <p><em>Note: Actual results will vary based on implementation and adoption.</em></p>
+                                <p><strong>Initial Investment: $${values.investment.toLocaleString()}</strong></p>
+                                <p><strong>Year 1 Projected Net Benefit: $${values.netBenefit.toLocaleString()}</strong></p>
+                                <p><strong>Projected ROI: ${values.roi}% | Estimated Payback: ${values.paybackMonths} months</strong></p>
+                            `;
+                        } else {
+                            financialBreakdown.innerHTML = `<p><em>Complete the data entry section above to see your customized financial analysis.</em></p>`;
+                        }
+                    }
+                    
+                    // Update cost estimates
+                    const costEstimate = document.querySelector('.cost-estimate-dynamic');
+                    if (costEstimate) {
+                        costEstimate.innerHTML = `Continue losing $${(values.defectSavings + values.complianceSavings).toLocaleString()}+ annually to preventable defects and compliance delays`;
+                    }
+                    
+                    // Update target savings
+                    const targetSavings = document.querySelector('.target-savings-dynamic');
+                    if (targetSavings) {
+                        targetSavings.innerHTML = `$${(values.totalSavings * 0.8).toLocaleString()}+ in quantifiable savings`;
+                    }
+                }
+                
+                function loadSavedData() {
+                    // Load data from localStorage if available
+                    const defectCost = localStorage.getItem('defectCost') || 0;
+                    const defectsPerYear = localStorage.getItem('defectsPerYear') || 0;
+                    const developerCount = localStorage.getItem('developerCount') || 0;
+                    const avgSalary = localStorage.getItem('avgSalary') || 0;
+                    const complianceDelay = localStorage.getItem('complianceDelay') || 0;
+                    const gamesPerYear = localStorage.getItem('gamesPerYear') || 0;
+                    const expectedDefectReduction = localStorage.getItem('expectedDefectReduction') || 30;
+                    const expectedProductivityGain = localStorage.getItem('expectedProductivityGain') || 20;
+                    
+                    document.getElementById('defectCost').value = defectCost;
+                    document.getElementById('defectsPerYear').value = defectsPerYear;
+                    document.getElementById('developerCount').value = developerCount;
+                    document.getElementById('avgSalary').value = avgSalary;
+                    document.getElementById('complianceDelay').value = complianceDelay;
+                    document.getElementById('gamesPerYear').value = gamesPerYear;
+                    document.getElementById('expectedDefectReduction').value = expectedDefectReduction;
+                    document.getElementById('expectedProductivityGain').value = expectedProductivityGain;
+                    
+                    // If we have saved data, recalculate to show results
+                    if (defectCost > 0 || defectsPerYear > 0 || developerCount > 0 || avgSalary > 0) {
+                        calculateROI();
+                    }
+                }
+
+                function clearData() {
+                    // Clear localStorage data
+                    localStorage.clear();
+                    
+                    // Reset form inputs
+                    document.getElementById('defectCost').value = 0;
+                    document.getElementById('defectsPerYear').value = 0;
+                    document.getElementById('developerCount').value = 0;
+                    document.getElementById('avgSalary').value = 0;
+                    document.getElementById('complianceDelay').value = 0;
+                    document.getElementById('gamesPerYear').value = 0;
+                    document.getElementById('expectedDefectReduction').value = 0;
+                    document.getElementById('expectedProductivityGain').value = 0;
+                    
+                    // Hide results
+                    document.getElementById('roiResults').style.display = 'none';
+                    document.getElementById('customResults').innerHTML = '';
+                    
+                    alert('All saved data has been cleared.');
+                }
+
+                function enterPresentationMode() {
+                    // Check if we have calculated data
+                    const roi = localStorage.getItem('roi');
+                    if (!roi) {
+                        alert('Please calculate your ROI first before entering presentation mode.');
+                        return;
+                    }
+                    
+                    // Get all saved values
+                    const defectCost = localStorage.getItem('defectCost') || 0;
+                    const defectsPerYear = localStorage.getItem('defectsPerYear') || 0;
+                    const developerCount = localStorage.getItem('developerCount') || 0;
+                    const expectedDefectReduction = localStorage.getItem('expectedDefectReduction') || 0;
+                    const expectedProductivityGain = localStorage.getItem('expectedProductivityGain') || 0;
+                    const totalSavings = localStorage.getItem('totalSavings') || 0;
+                    const investment = localStorage.getItem('investment') || 0;
+                    const paybackMonths = localStorage.getItem('paybackMonths') || 0;
+                    const defectSavings = localStorage.getItem('defectSavings') || 0;
+                    const productivitySavings = localStorage.getItem('productivitySavings') || 0;
+                    const complianceSavings = localStorage.getItem('complianceSavings') || 0;
+                    
+                    // Update presentation slide values
+                    document.getElementById('present-investment').textContent = '$' + parseInt(investment).toLocaleString();
+                    document.getElementById('present-investment-2').textContent = '$' + parseInt(investment).toLocaleString();
+                    document.getElementById('present-roi').textContent = roi;
+                    document.getElementById('present-payback').textContent = paybackMonths;
+                    document.getElementById('present-total-savings').textContent = '$' + parseInt(totalSavings).toLocaleString();
+                    document.getElementById('present-defect-savings').textContent = '$' + parseInt(defectSavings).toLocaleString();
+                    document.getElementById('present-productivity-savings').textContent = '$' + parseInt(productivitySavings).toLocaleString();
+                    document.getElementById('present-compliance-savings').textContent = '$' + parseInt(complianceSavings).toLocaleString();
+                    document.getElementById('present-defect-cost').textContent = '$' + parseInt(defectCost).toLocaleString();
+                    document.getElementById('present-defects-per-year').textContent = defectsPerYear;
+                    document.getElementById('present-developer-count').textContent = developerCount;
+                    document.getElementById('present-defect-reduction').textContent = expectedDefectReduction;
+                    document.getElementById('present-productivity-gain').textContent = expectedProductivityGain;
+                    
+                    // Enter presentation mode
+                    document.body.classList.add('presentation-mode');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                }
+                
+                function exitPresentationMode() {
+                    document.body.classList.remove('presentation-mode');
+                    window.scrollTo(0, 0);
+                }
+                
+                // Load saved data when page loads
+                window.addEventListener('load', loadSavedData);
+                </script>
+            </div>
+        </div>
+
+        <div class="category-section" id="category4">
+            <h2 class="category-title">4. Risk Management & Competitive Positioning</h2>
+            
+            <div class="sub-topic">
+                <h3>Enterprise Security & Compliance</h3>
+                <h4>Data Protection Strategy</h4>
+                <ul>
+                    <li><strong>Air-gapped development</strong>: Complete isolation from external networks</li>
+                    <li><strong>Local-only processing</strong>: All AI computations occur on-premises</li>
+                    <li><strong>Audit trails</strong>: Comprehensive logging of all AI interactions</li>
+                    <li><strong>Access controls</strong>: Role-based permissions for different team members</li>
+                </ul>
+
+                <h4>Regulatory Compliance Benefits</h4>
+                <ul>
+                    <li><strong>Enhanced changelog quality</strong>: AI generates detailed, regulation-compliant commit messages and change documentation</li>
+                    <li><strong>Mathematical proof generation</strong>: Automated documentation for regulatory review</li>
+                    <li><strong>Compliance validation</strong>: Real-time checking against GLI/BMM standards</li>
+                    <li><strong>Audit-ready documentation</strong>: Automated generation of certification materials</li>
+                    <li><strong>Regulatory submission preparation</strong>: Consistent, professional documentation that reduces regulator pushback</li>
+                </ul>
+
+                <div class="success">
+                    <strong>Compliance Advantage:</strong> Faster regulatory approval cycles through automated documentation, enhanced changelog quality, and reduced regulator pushback on submissions.
+                </div>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Competitive Positioning</h3>
+                <h4>Strategic Advantages</h4>
+                <ul>
+                    <li><strong>First-mover advantage</strong>: Industry leadership in gaming-specific AI development</li>
+                    <li><strong>Proprietary capabilities</strong>: AI trained on our specific mathematical innovations</li>
+                    <li><strong>Talent attraction</strong>: Cutting-edge development environment attracts top developers</li>
+                    <li><strong>Institutional knowledge</strong>: AI system captures and preserves mathematical expertise</li>
+                </ul>
+
+                <div class="warning">
+                    <h4>Cost of Inaction</h4>
+                    <ul>
+                        <li class="cost-estimate-dynamic">Continue losing money annually to preventable defects (calculate above for your specific impact)</li>
+                        <li>Fall behind competitors implementing similar solutions</li>
+                        <li>Maintain slow compliance cycles limiting revenue opportunities</li>
+                        <li>Risk IP exposure through external AI tool usage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="category5">
+            <h2 class="category-title">5. Implementation Strategy</h2>
+            
+            <div class="sub-topic">
+                <h3>Phased Implementation Roadmap</h3>
+                <h4>Phase 1: Foundation (Months 1-2)</h4>
+                <ul>
+                    <li>Hardware procurement and setup</li>
+                    <li>Core AI infrastructure deployment</li>
+                    <li>Initial model training on existing codebase</li>
+                    <li><strong>Deliverable</strong>: Working AI assistant for basic mathematical validation</li>
+                </ul>
+
+                <h4>Phase 2: Gaming Integration (Months 3-4)</h4>
+                <ul>
+                    <li>Custom training on mathematical models</li>
+                    <li>Unity-specific optimization patterns</li>
+                    <li>Compliance validation workflows</li>
+                    <li><strong>Deliverable</strong>: AI preventing 60%+ of common mathematical defects</li>
+                </ul>
+
+                <h4>Phase 3: Advanced Capabilities (Months 5-6)</h4>
+                <ul>
+                    <li>Automated test generation</li>
+                    <li>Regulatory documentation assistance</li>
+                    <li>Performance optimization suggestions</li>
+                    <li><strong>Deliverable</strong>: Production-ready gaming AI development environment</li>
+                </ul>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Success Metrics & KPIs</h3>
+                <div class="success">
+                    <h4>6-Month Targets</h4>
+                    <ul>
+                        <li>Substantial reduction in defects reaching QA</li>
+                        <li>Faster compliance documentation generation</li>
+                        <li>Improved developer velocity for complex components</li>
+                    </ul>
+
+                    <h4>12-Month Targets</h4>
+                    <ul>
+                        <li>Significant reduction in production defects</li>
+                        <li>Faster regulatory approval cycles</li>
+                        <li>Overall improvement in development efficiency</li>
+                        <li class="target-savings-dynamic">Quantifiable savings based on your data</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sub-topic">
+                <h3>Call to Action</h3>
+                <div class="highlight">
+                    <h4>Immediate Next Steps</h4>
+                    <ol>
+                        <li><strong>Approve $115,000 investment</strong> for 6-month implementation</li>
+                        <li><strong>Assign project team</strong> (1 DevOps engineer, 1 senior developer, part-time)</li>
+                        <li><strong>Begin hardware procurement</strong> (4-week lead time)</li>
+                        <li><strong>Start pilot program</strong> on next slot game development cycle</li>
+                    </ol>
+                    
+                    <p><strong>Strategic Impact:</strong> This investment positions us as an industry leader while solving our most expensive operational challenges. The question isn't whether we can afford to implement this - it's whether we can afford not to.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><em>Executive Presentation: In-House Gaming AI Development Environment</em></p>
+            <p>Strategic Analysis for Competitive Advantage & Operational Excellence</p>
+        </div>
+    </div>
+</body>
+</html>
