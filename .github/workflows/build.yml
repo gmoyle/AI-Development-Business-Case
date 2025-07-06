@@ -1,27 +1,77 @@
-name: Build Distribution Zip
+name: Release Build
 
 on:
-  push:
-    branches:
-      - master
   release:
-    types: [created]
+    types: [published]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
-  build-zip:
+  release-build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Create distribution zip
+    - name: Get version from tag
+      id: get_version
       run: |
-        zip -r ai-development-business-case.zip . -x '*.git*' '*.github*'
+        if [[ $GITHUB_REF == refs/tags/* ]]; then
+          VERSION=${GITHUB_REF#refs/tags/}
+        else
+          VERSION=${GITHUB_SHA::8}
+        fi
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Version: $VERSION"
 
-    - name: Upload zip artifact
+    - name: Create release distribution
+      run: |
+        # Create a clean distribution directory
+        mkdir -p dist
+        
+        # Copy documentation files
+        cp *.html dist/ 2>/dev/null || true
+        cp README.md dist/
+        
+        # Create versioned zip file
+        cd dist
+        zip -r "../ai-development-business-case-${{ steps.get_version.outputs.version }}.zip" .
+        cd ..
+        
+        # Create checksums
+        sha256sum "ai-development-business-case-${{ steps.get_version.outputs.version }}.zip" > "ai-development-business-case-${{ steps.get_version.outputs.version }}.zip.sha256"
+
+    - name: Upload release artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ai-development-business-case
-        path: ai-development-business-case.zip
+        name: release-artifacts-${{ steps.get_version.outputs.version }}
+        path: |
+          ai-development-business-case-*.zip
+          ai-development-business-case-*.zip.sha256
+
+    - name: Upload to release
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ai-development-business-case-${{ steps.get_version.outputs.version }}.zip
+        asset_name: ai-development-business-case-${{ steps.get_version.outputs.version }}.zip
+        asset_content_type: application/zip
+
+    - name: Upload checksum to release
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ai-development-business-case-${{ steps.get_version.outputs.version }}.zip.sha256
+        asset_name: ai-development-business-case-${{ steps.get_version.outputs.version }}.zip.sha256
+        asset_content_type: text/plain
 
